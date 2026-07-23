@@ -1,0 +1,7 @@
+# Maestro configuration for CCN mobile E2E.
+# Flows are added alongside the features they exercise (onboarding/verification,
+# buy-sell-with-delivery, delivery-fee payment). No flows exist yet by design.
+flows:
+  - '*.yaml'
+includeTags: []
+excludeTags: [wip]

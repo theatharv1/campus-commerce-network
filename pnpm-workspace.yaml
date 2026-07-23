@@ -1,0 +1,23 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+# Centralized third-party versions (referenced via `catalog:` in package.json).
+catalog:
+  zod: ^3.23.0
+  jest: ^29.7.0
+  ts-jest: ^29.2.5
+  '@types/jest': ^29.5.14
+  jest-junit: ^16.0.0
+  # ── Mobile platform (Expo SDK 53 target — reconcile via `expo install --fix`) ──
+  expo: ~53.0.0
+  react: 19.0.0
+  react-native: 0.79.5
+  '@types/react': ~19.0.0
+  expo-status-bar: ~2.2.0
+  expo-splash-screen: ~0.30.0
+  react-native-gesture-handler: ~2.24.0
+  react-native-reanimated: ~3.17.0
+  react-native-safe-area-context: ~5.4.0
+  babel-plugin-module-resolver: ^5.0.2
+  '@babel/core': ^7.25.0

@@ -1,0 +1,37 @@
+{
+  "name": "@ccn/mobile",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "start:clear": "expo start --clear",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "prebuild": "expo prebuild --clean",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "clean": "rm -rf .turbo dist .expo"
+  },
+  "dependencies": {
+    "@ccn/api-client": "workspace:*",
+    "@ccn/core": "workspace:*",
+    "@ccn/types": "workspace:*",
+    "@ccn/ui": "workspace:*",
+    "expo": "catalog:",
+    "expo-splash-screen": "catalog:",
+    "expo-status-bar": "catalog:",
+    "react": "catalog:",
+    "react-native": "catalog:",
+    "react-native-gesture-handler": "catalog:",
+    "react-native-reanimated": "catalog:",
+    "react-native-safe-area-context": "catalog:"
+  },
+  "devDependencies": {
+    "@babel/core": "catalog:",
+    "@ccn/config": "workspace:*",
+    "@types/react": "catalog:",
+    "babel-plugin-module-resolver": "catalog:"
+  }
+}

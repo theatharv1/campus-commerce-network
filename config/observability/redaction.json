@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "policy": "deny-by-default for sensitive fields; redact before emit",
+  "never_log": [
+    "password", "otp", "otp_hash", "refresh_token", "access_token", "jwt",
+    "service_role_key", "razorpay_key_secret", "webhook_secret",
+    "aadhaar", "student_id_document", "id_document", "storage_ref",
+    "email", "phone", "full_name", "address", "card", "upi_id"
+  ],
+  "redact_as": "[REDACTED]",
+  "hash_instead": ["ip_address", "device_id"],
+  "allow_opaque_ids": ["user_ref", "order_id", "listing_id", "delivery_id", "correlation_id"]
+}

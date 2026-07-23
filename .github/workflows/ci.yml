@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate (lint, types, format, dead-code, build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install (frozen lockfile)
+        run: pnpm install --frozen-lockfile
+      - name: Format check
+        run: pnpm run format:check
+      - name: Lint (zero warnings)
+        run: pnpm run lint:ci
+      - name: Typecheck (workspaces)
+        run: pnpm run typecheck:workspaces
+      - name: Dead code (knip)
+        run: pnpm run deadcode
+      - name: Build (Turbo)
+        run: pnpm run build
+      - name: Job summary
+        if: always()
+        run: echo "### CI validate complete for \`${{ github.ref_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+  deps:
+    name: Dependencies (audit, dedupe)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install (frozen lockfile)
+        run: pnpm install --frozen-lockfile
+      - name: Audit
+        run: pnpm run audit
+      - name: Dedupe check
+        run: pnpm run deps:dedupe
+
+  test:
+    name: Test (unit/integration)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - name: Install (frozen lockfile)
+        run: pnpm install --frozen-lockfile
+      - name: Test (Turbo)
+        run: pnpm run test
+      - name: Job summary
+        if: always()
+        run: echo "### Tests complete for \`${{ github.ref_name }}\`" >> "$GITHUB_STEP_SUMMARY"

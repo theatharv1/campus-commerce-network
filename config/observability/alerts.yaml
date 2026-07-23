@@ -1,0 +1,43 @@
+version: 1
+severity_levels: [SEV1, SEV2, SEV3, SEV4]
+alerts:
+  - name: crash_rate_spike
+    signal: crash-free sessions < 99.0% (15m)
+    severity: SEV1
+    channel: pager + eng-critical
+  - name: api_5xx_spike
+    signal: 5xx rate > 2% (5m)
+    severity: SEV1
+    channel: pager + eng-critical
+  - name: db_unreachable
+    signal: database connection failures > 0 (1m)
+    severity: SEV1
+    channel: pager
+  - name: payment_failure_rate
+    signal: delivery-fee failure > 3% (10m)
+    severity: SEV1
+    channel: pager + payments
+  - name: api_latency_p95
+    signal: p95 write latency > 2s (10m)
+    severity: SEV2
+    channel: eng
+  - name: delivery_completion_drop
+    signal: completion < 95% (30m)
+    severity: SEV2
+    channel: ops
+  - name: dead_letter_growth
+    signal: dead-letter queue depth increasing (15m)
+    severity: SEV2
+    channel: eng + ops
+  - name: auth_failure_spike
+    signal: auth/RLS-denied spike (10m)
+    severity: SEV2
+    channel: security
+  - name: memory_saturation
+    signal: memory > 85% sustained (15m)
+    severity: SEV3
+    channel: eng
+  - name: notification_delivery_drop
+    signal: push/SMS delivery failure > 5% (15m)
+    severity: SEV3
+    channel: eng

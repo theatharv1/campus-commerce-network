@@ -1,0 +1,2 @@
+node scripts/check-branch.mjs
+pnpm run typecheck

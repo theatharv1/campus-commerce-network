@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CCN Structured Log Event",
+  "type": "object",
+  "required": ["timestamp", "level", "message", "service", "env"],
+  "properties": {
+    "timestamp": { "type": "string", "format": "date-time" },
+    "level": { "type": "string", "enum": ["trace", "debug", "info", "warn", "error", "fatal"] },
+    "message": { "type": "string" },
+    "service": { "type": "string" },
+    "env": { "type": "string", "enum": ["development", "staging", "production"] },
+    "correlation_id": { "type": ["string", "null"] },
+    "user_ref": { "type": ["string", "null"] },
+    "event_type": { "type": ["string", "null"] },
+    "duration_ms": { "type": ["number", "null"] },
+    "error": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": { "type": "string" },
+        "code": { "type": "string" },
+        "stack_hash": { "type": "string" }
+      }
+    },
+    "context": { "type": ["object", "null"] }
+  },
+  "additionalProperties": false
+}

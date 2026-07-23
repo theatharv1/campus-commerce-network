@@ -1,0 +1,14 @@
+{
+  "name": "@ccn/config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./tsconfig/library.json": "./tsconfig/library.json",
+    "./tsconfig/react-native.json": "./tsconfig/react-native.json",
+    "./jest/node.cjs": "./jest/node.cjs",
+    "./jest/react-native.cjs": "./jest/react-native.cjs"
+  },
+  "scripts": {
+    "clean": "rm -rf .turbo"
+  }
+}
