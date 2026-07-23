@@ -47,6 +47,20 @@ All eleven engineering documents in `docs/planning/`.
 8. Motion System — pending
 9. Icon System + component-token layer + governance + docs + ADRs — pending
 
+### Stage 3 — Enterprise UI Component Library (increment plan, 9 increments)
+
+1. **Library Foundation: Semantic Tokens + Theme Model + Architecture — DONE**
+   (packages/ui/src/theme: SemanticColors, lightColors/darkColors, Theme,
+   lightTheme/darkTheme/themes; completes the Stage-2 semantic/theme gap; strict tsc verified)
+2. Theme Engine Runtime + NativeWind integration — pending
+3. Animation Foundation + base primitives (Box/Text/PressableWithHaptic/Icon) — pending
+4. Foundation Components (Button/Card/Badge/Avatar/Divider/Skeleton) — pending
+5. Input Components — pending
+6. Display Components — pending
+7. Overlay Components — pending
+8. Navigation primitives + List components — pending
+9. Feedback components + Testing + Docs + Governance + ADRs — pending
+
 ## CI notes (green on Node 22)
 
 - Local dev requires **Node 22** (`nvm use 22`); the repo enforces `engines.node >=22`.

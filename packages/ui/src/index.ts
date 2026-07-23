@@ -1,7 +1,9 @@
-// @ccn/ui — CCN Enterprise Design System.
+// @ccn/ui — CCN Enterprise Design System & Component Library.
 //
-// Increment 1 exposes the core (reference) design tokens and the token type
-// system. Semantic tokens, the theme engine, and components arrive in later
-// increments. No React Native components are exported yet.
+// Increment 1 (Stage 3) exposes the core design tokens (Stage 2) plus the
+// semantic token layer and theme model. The theme engine runtime
+// (ThemeProvider/useTheme), animation foundation, and components arrive in
+// later increments. No React Native components are exported yet.
 
 export * from './tokens';
+export * from './theme';
