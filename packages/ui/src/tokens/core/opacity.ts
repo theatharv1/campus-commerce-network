@@ -1,0 +1,16 @@
+import type { OpacityScale } from '../types';
+
+/** Core opacity scale (0..1). */
+export const opacity = {
+  0: 0,
+  5: 0.05,
+  10: 0.1,
+  20: 0.2,
+  40: 0.4,
+  60: 0.6,
+  80: 0.8,
+  90: 0.9,
+  100: 1,
+} as const satisfies OpacityScale;
+
+export type Opacity = typeof opacity;

@@ -30,6 +30,18 @@ All eleven engineering documents in `docs/planning/`.
 8. Localization Foundation — pending
 9. Configuration + flag loader + lifecycle/error-recovery/perf + ADRs — pending
 
+### Stage 2 — Enterprise Design System (increment plan, 9 increments)
+1. **Design Token Foundation — DONE** (packages/ui: core color/space/type/radius/opacity/border/
+   z-index/breakpoint tokens + token type system + governance doc; strict tsc verified)
+2. Semantic Token Layer — pending
+3. Theme Engine + Dark Theme — pending
+4. Typography System — pending
+5. Spacing, Grid, Layout & Responsive — pending
+6. Color System (deep) + contrast validation — pending
+7. Shape / Elevation / Radius / Border / Opacity / Z-index systems — pending
+8. Motion System — pending
+9. Icon System + component-token layer + governance + docs + ADRs — pending
+
 ## Standing gates before feature work
 OQ1/OQ2 Spynzo · OQ3 escrow legality · OQ4 verification logic · OQ10 DPDP ·
 OQ8 analytics taxonomy + brand/name · secrets-manager / analytics-provider / on-call decisions.
