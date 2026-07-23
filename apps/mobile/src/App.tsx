@@ -1,31 +1,37 @@
+import { darkTheme, lightTheme } from '@ccn/ui';
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useColorScheme } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+import { toNavigationTheme } from './shell/navigation-theme';
+import { RootNavigator } from './shell/RootNavigator';
 
 /**
- * Platform root placeholder. This renders only a neutral boot surface so the
- * native platform is verifiably running. The real bootstrap pipeline
- * (splash orchestration, provider composition, error boundary, navigation
- * init) is introduced in Increment 3.
+ * Root application shell and provider hierarchy.
+ *
+ *   GestureHandlerRootView   (gesture system root — must wrap everything)
+ *     SafeAreaProvider       (safe-area insets for all screens)
+ *       NavigationContainer  (navigation tree + design-system theme bridge)
+ *         RootNavigator
+ *
+ * The system color scheme selects the theme statically for now; the full theme
+ * runtime (preference store + persistence, Stage 3 · Increment 2) plugs into
+ * this same position without changing the shell's shape.
  */
 export function App(): React.JSX.Element {
+  const scheme = useColorScheme();
+  const theme = scheme === 'dark' ? darkTheme : lightTheme;
+
   return (
-    <View style={styles.container} accessible accessibilityLabel="CCN platform initializing">
-      <StatusBar style="auto" />
-      <Text style={styles.text}>CCN</Text>
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <NavigationContainer theme={toNavigationTheme(theme)}>
+          <StatusBar style={theme.mode === 'dark' ? 'light' : 'dark'} />
+          <RootNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#0E0E1A',
-  },
-  text: {
-    color: '#FFFFFF',
-    fontSize: 24,
-    fontWeight: '600',
-  },
-});

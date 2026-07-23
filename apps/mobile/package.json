@@ -19,6 +19,8 @@
     "@ccn/core": "workspace:*",
     "@ccn/types": "workspace:*",
     "@ccn/ui": "workspace:*",
+    "@react-navigation/native": "catalog:",
+    "@react-navigation/native-stack": "catalog:",
     "expo": "catalog:",
     "expo-splash-screen": "catalog:",
     "expo-status-bar": "catalog:",
@@ -27,6 +29,7 @@
     "react-native-gesture-handler": "catalog:",
     "react-native-reanimated": "catalog:",
     "react-native-safe-area-context": "catalog:",
+    "react-native-screens": "catalog:",
     "react-native-worklets": "catalog:"
   },
   "devDependencies": {

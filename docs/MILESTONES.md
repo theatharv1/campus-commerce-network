@@ -61,6 +61,21 @@ All eleven engineering documents in `docs/planning/`.
 8. Navigation primitives + List components — pending
 9. Feedback components + Testing + Docs + Governance + ADRs — pending
 
+### Stage 4 — Application Shell & Navigation Platform (increment plan, 9 increments)
+
+1. **Root Shell + Provider Hierarchy + NavigationContainer — DONE**
+   (apps/mobile/src/App.tsx + shell/: GestureHandlerRootView -> SafeAreaProvider ->
+   NavigationContainer(themed) -> RootNavigator; React Navigation 7 native-stack;
+   @ccn/ui theme bridge; typed RootStackParamList; strict gates verified on Node 22)
+2. Navigation Architecture & Route Organization — pending
+3. Deep Linking (Zod-validated contract) — pending
+4. Modal Architecture & Global Overlays (bottom sheets, toasts) — pending
+5. Navigation Security (route guards) — pending
+6. State Restoration + Transition System — pending
+7. Shell Lifecycle + Error Recovery — pending
+8. Navigation Analytics + Accessibility + Performance — pending
+9. Testing + Documentation + ADRs — pending
+
 ## CI notes (green on Node 22)
 
 - Local dev requires **Node 22** (`nvm use 22`); the repo enforces `engines.node >=22`.

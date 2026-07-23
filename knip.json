@@ -4,8 +4,6 @@
     "@ccn/types",
     "@ccn/core",
     "@ccn/api-client",
-    "@ccn/ui",
-    "react-native-safe-area-context",
     "react-native-reanimated",
     "expo-updates"
   ],
