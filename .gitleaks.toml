@@ -1,0 +1,20 @@
+# CCN gitleaks config. Extends the default ruleset and allowlists template,
+# example, and documentation files that contain placeholders only.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "CCN: example/template/doc files contain placeholders, not real secrets"
+paths = [
+  '''\.env\.example$''',
+  '''(^|/)docs/''',
+  '''(^|/)config/''',
+  '''(^|/)README\.md$''',
+  '''\.gitleaks\.toml$''',
+]
+regexes = [
+  '''__SET_IN_SECRETS_STORE__''',
+  '''YOUR_[A-Z0-9_]+''',
+  '''PUBLIC_DSN''',
+  '''rzp_test_YOUR_KEY_ID''',
+]

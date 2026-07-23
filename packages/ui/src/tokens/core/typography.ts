@@ -5,16 +5,18 @@ import type { FontWeightValue } from '../types';
  * fonts by the font-loading contract (Increment 4). Default families derive
  * from the CampusCircle wireframe (Poppins display / Inter body) and are
  * swappable with the brand decision (OQ8).
+ *
+ * Primitives are internal; the public surface is `core.typography`.
  */
 
-export const fontFamily = {
+const fontFamily = {
   display: 'Poppins',
   body: 'Inter',
   mono: 'SpaceMono',
 } as const;
 
 /** Font-size scale (device-independent pixels). */
-export const fontSize = {
+const fontSize = {
   xs: 11,
   sm: 12,
   base: 14,
@@ -27,7 +29,7 @@ export const fontSize = {
   '5xl': 44,
 } as const;
 
-export const fontWeight = {
+const fontWeight = {
   regular: '400',
   medium: '500',
   semibold: '600',
@@ -36,7 +38,7 @@ export const fontWeight = {
 } as const satisfies Readonly<Record<string, FontWeightValue>>;
 
 /** Unitless line-height multipliers. */
-export const lineHeight = {
+const lineHeight = {
   none: 1,
   tight: 1.15,
   snug: 1.3,
@@ -45,7 +47,7 @@ export const lineHeight = {
 } as const;
 
 /** Letter-spacing in device-independent pixels. */
-export const letterSpacing = {
+const letterSpacing = {
   tighter: -1,
   tight: -0.5,
   normal: 0,

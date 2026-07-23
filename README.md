@@ -23,17 +23,17 @@ cd apps/mobile && npx expo install --fix
 
 ## Scripts (root)
 
-| Command | Purpose |
-| --- | --- |
-| `pnpm lint` / `pnpm lint:ci` | ESLint (zero-warning in CI) |
-| `pnpm format:check` | Prettier check |
-| `pnpm typecheck` / `pnpm typecheck:workspaces` | TypeScript |
-| `pnpm test` | Turbo test |
-| `pnpm build` | Turbo build |
-| `pnpm deadcode` | knip |
-| `pnpm audit` / `pnpm deps:dedupe` | supply-chain gates |
-| `pnpm env:check` | env validation |
-| `pnpm check` | lint + format + typecheck |
+| Command                                        | Purpose                     |
+| ---------------------------------------------- | --------------------------- |
+| `pnpm lint` / `pnpm lint:ci`                   | ESLint (zero-warning in CI) |
+| `pnpm format:check`                            | Prettier check              |
+| `pnpm typecheck` / `pnpm typecheck:workspaces` | TypeScript                  |
+| `pnpm test`                                    | Turbo test                  |
+| `pnpm build`                                   | Turbo build                 |
+| `pnpm deadcode`                                | knip                        |
+| `pnpm audit` / `pnpm deps:dedupe`              | supply-chain gates          |
+| `pnpm env:check`                               | env validation              |
+| `pnpm check`                                   | lint + format + typecheck   |
 
 ## Workspace layout
 
@@ -65,6 +65,7 @@ Repo Init · Monorepo · TypeScript Foundation · Dev Environment & Config · Pa
 Code Quality · CI/CD · Testing Foundation · Observability.
 
 **Phase 2 — Platform (in progress):**
+
 - Stage 1 (Mobile Platform Foundation) — **Increment 1 of 9 complete**: Expo app init +
   native platform config wired into the monorepo. Increments 2–9 pending approval.
 

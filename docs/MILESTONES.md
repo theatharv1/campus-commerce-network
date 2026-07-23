@@ -1,23 +1,27 @@
 # CCN Build Chain — Milestone Status
 
 ## Phase 1 — Documentation (Stages 1–12) · LOCKED
+
 All eleven engineering documents in `docs/planning/`.
 
 ## Phase 1 — Foundation milestones (Stages 13–21) · IMPLEMENTED (this repo)
-| Stage | Milestone | Where |
-|---|---|---|
-| 13 | Repository Initialization | root tooling: package.json, tsconfig, eslint, prettier, husky, commitlint |
-| 14 | Monorepo Architecture | pnpm-workspace.yaml, turbo.json, apps/*, packages/* |
-| 15 | TypeScript Foundation | packages/config/tsconfig presets, per-package tsconfig |
-| 16 | Dev Environment & Config | .env.example(s), config/feature-flags.json, scripts/check-env.mjs, .vscode |
-| 17 | Package Manager & Workspace | catalog, .npmrc governance, renovate.json, pnpm field |
-| 18 | Code Quality Foundation | eslint boundaries/import-x, knip.json, scripts/check-branch.mjs, commit scopes |
-| 19 | CI/CD & Release | .github/workflows/{ci,security,release-please}.yml, release-please config |
-| 20 | Testing Foundation | packages/config/jest presets, per-package jest.config, .maestro |
-| 21 | Observability | config/observability/{log-schema,redaction,alerts}, docs/incident templates |
+
+| Stage | Milestone                   | Where                                                                          |
+| ----- | --------------------------- | ------------------------------------------------------------------------------ |
+| 13    | Repository Initialization   | root tooling: package.json, tsconfig, eslint, prettier, husky, commitlint      |
+| 14    | Monorepo Architecture       | pnpm-workspace.yaml, turbo.json, apps/_, packages/_                            |
+| 15    | TypeScript Foundation       | packages/config/tsconfig presets, per-package tsconfig                         |
+| 16    | Dev Environment & Config    | .env.example(s), config/feature-flags.json, scripts/check-env.mjs, .vscode     |
+| 17    | Package Manager & Workspace | catalog, .npmrc governance, renovate.json, pnpm field                          |
+| 18    | Code Quality Foundation     | eslint boundaries/import-x, knip.json, scripts/check-branch.mjs, commit scopes |
+| 19    | CI/CD & Release             | .github/workflows/{ci,security,release-please}.yml, release-please config      |
+| 20    | Testing Foundation          | packages/config/jest presets, per-package jest.config, .maestro                |
+| 21    | Observability               | config/observability/{log-schema,redaction,alerts}, docs/incident templates    |
 
 ## Phase 2 — Platform (in progress)
+
 ### Stage 1 — Mobile Platform Foundation (increment plan, 9 increments)
+
 1. **Expo App Init & Native Platform Config — DONE** (apps/mobile: app.config.ts, eas.json,
    metro.config.js, babel.config.js, tsconfig, index.ts, src/App.tsx; New Arch + Hermes;
    monorepo Metro; alias resolver; build profiles/versioning)
@@ -31,6 +35,7 @@ All eleven engineering documents in `docs/planning/`.
 9. Configuration + flag loader + lifecycle/error-recovery/perf + ADRs — pending
 
 ### Stage 2 — Enterprise Design System (increment plan, 9 increments)
+
 1. **Design Token Foundation — DONE** (packages/ui: core color/space/type/radius/opacity/border/
    z-index/breakpoint tokens + token type system + governance doc; strict tsc verified)
 2. Semantic Token Layer — pending
@@ -42,11 +47,25 @@ All eleven engineering documents in `docs/planning/`.
 8. Motion System — pending
 9. Icon System + component-token layer + governance + docs + ADRs — pending
 
+## CI notes (green on Node 22)
+
+- Local dev requires **Node 22** (`nvm use 22`); the repo enforces `engines.node >=22`.
+- `pnpm-lock.yaml` is committed. Reconciled to **Expo SDK 57** (react-native 0.86,
+  React 19.2, Reanimated 4 -> uses `react-native-worklets/plugin`).
+- `pnpm audit` ignores 9 GHSA advisories (`pnpm.auditConfig.ignoreGhsas`) that live in
+  **Expo SDK 57 transitive build tooling** (`handlebars` in `@expo/*`, `uuid` in `xcode`).
+  These are not in the shipped app bundle and have no SDK-57 fix; re-evaluate on Expo upgrade.
+- Security workflow uses a pinned gitleaks release binary (license-free); vuln scanning is
+  handled by `pnpm audit` in the CI `deps` job.
+- GitHub setting enabled: "Allow GitHub Actions to create and approve pull requests" (release-please).
+
 ## Standing gates before feature work
+
 OQ1/OQ2 Spynzo · OQ3 escrow legality · OQ4 verification logic · OQ10 DPDP ·
 OQ8 analytics taxonomy + brand/name · secrets-manager / analytics-provider / on-call decisions.
 
 ## Manual setup required (host-side, not in repo)
+
 - Reconcile Expo versions: `npx expo install --fix`
 - EAS project + `EAS_PROJECT_ID` + `eas build:configure`
 - Branch protection on `main` (required checks: validate, deps, test, secret-scan, vuln-scan)

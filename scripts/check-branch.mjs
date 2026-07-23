@@ -3,7 +3,18 @@
 
 import { execSync } from 'node:child_process';
 
-const ALLOWED = ['feat', 'fix', 'chore', 'docs', 'refactor', 'test', 'ci', 'build', 'perf', 'release'];
+const ALLOWED = [
+  'feat',
+  'fix',
+  'chore',
+  'docs',
+  'refactor',
+  'test',
+  'ci',
+  'build',
+  'perf',
+  'release',
+];
 const PATTERN = new RegExp(`^(main|(${ALLOWED.join('|')})\\/[a-z0-9._-]+)$`);
 
 let branch = '';

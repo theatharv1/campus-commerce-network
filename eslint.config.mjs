@@ -44,7 +44,7 @@ export default tseslint.config(
       boundaries,
     },
     settings: {
-      'import-x/resolver': { typescript: true, node: true },
+      'import-x/resolver': { typescript: { alwaysTryTypes: true }, node: true },
       'boundaries/elements': [
         { type: 'app', pattern: 'apps/*' },
         { type: 'pkg-types', pattern: 'packages/types' },

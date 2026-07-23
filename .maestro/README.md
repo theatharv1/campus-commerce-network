@@ -1,6 +1,7 @@
 # CCN Mobile E2E (Maestro)
 
 Critical-path flows (mandatory before pilot, per SRS §12):
+
 - onboarding & verification
 - buy -> sell with delivery
 - delivery-fee payment

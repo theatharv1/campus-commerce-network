@@ -18,8 +18,16 @@
     "rentals": { "description": "Rentals (V2).", "default": false, "gated": true },
     "ai_assist": { "description": "AI pricing/description (V2).", "default": false, "gated": true },
     "community": { "description": "Campus community (V3).", "default": false, "gated": false },
-    "rides": { "description": "Ride sharing (V3). Requires Level-2 verification + escrow.", "default": false, "gated": true },
-    "notes_exchange": { "description": "Academic notes/PYQ (V3).", "default": false, "gated": false },
+    "rides": {
+      "description": "Ride sharing (V3). Requires Level-2 verification + escrow.",
+      "default": false,
+      "gated": true
+    },
+    "notes_exchange": {
+      "description": "Academic notes/PYQ (V3).",
+      "default": false,
+      "gated": false
+    },
     "lost_and_found": { "description": "Lost & Found (V3).", "default": false, "gated": false }
   }
 }

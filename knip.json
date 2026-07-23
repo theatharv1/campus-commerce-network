@@ -1,11 +1,21 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreDependencies": [
+    "@ccn/types",
+    "@ccn/core",
+    "@ccn/api-client",
+    "@ccn/ui",
+    "react-native-safe-area-context",
+    "react-native-reanimated",
+    "expo-updates"
+  ],
   "workspaces": {
-    ".": {
-      "entry": ["scripts/*.mjs", "eslint.config.mjs", "commitlint.config.cjs"],
-      "project": ["**/*.{ts,mjs,cjs}"]
+    "apps/mobile": {
+      "entry": ["metro.config.js"]
     },
-    "apps/mobile": { "entry": ["index.ts", "app.config.ts"], "project": ["src/**/*.{ts,tsx}"] },
-    "packages/*": { "entry": ["src/index.ts"], "project": ["src/**/*.{ts,tsx}"] }
+    "packages/config": {
+      "entry": ["jest/*.cjs", "tsconfig/*.json"],
+      "project": ["**/*.cjs"]
+    }
   }
 }

@@ -8,7 +8,7 @@ import type { ColorScale } from '../types';
  * here (CQ: token-swap, Frontend Architecture §6).
  */
 
-export const neutral = {
+const neutral = {
   0: '#FFFFFF',
   50: '#F6F6FB',
   100: '#ECECF2',
@@ -24,7 +24,7 @@ export const neutral = {
   1000: '#000000',
 } as const satisfies ColorScale;
 
-export const indigo = {
+const indigo = {
   50: '#EEECFC',
   100: '#DEDAFA',
   200: '#C4BCF6',
@@ -37,7 +37,7 @@ export const indigo = {
   900: '#201B72',
 } as const satisfies ColorScale;
 
-export const mint = {
+const mint = {
   50: '#E3F9F3',
   100: '#C1F1E4',
   200: '#8FE6CE',
@@ -50,7 +50,7 @@ export const mint = {
   900: '#064B38',
 } as const satisfies ColorScale;
 
-export const amber = {
+const amber = {
   50: '#FFF3DC',
   100: '#FFE4B0',
   200: '#FFD180',
@@ -63,7 +63,7 @@ export const amber = {
   900: '#5E3D03',
 } as const satisfies ColorScale;
 
-export const coral = {
+const coral = {
   50: '#FFE9E9',
   100: '#FFCACA',
   200: '#FFA3A3',
@@ -76,7 +76,7 @@ export const coral = {
   900: '#701F1F',
 } as const satisfies ColorScale;
 
-export const sky = {
+const sky = {
   50: '#E7F1FF',
   100: '#C7DEFF',
   200: '#94C1FF',

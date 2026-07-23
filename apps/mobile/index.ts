@@ -3,7 +3,7 @@ import 'react-native-gesture-handler';
 
 import { registerRootComponent } from 'expo';
 
-import { App } from '@/App';
+import { App } from './src/App';
 
 // registerRootComponent wraps App with the correct native root and handles
 // AppRegistry for both Expo Go and native builds.

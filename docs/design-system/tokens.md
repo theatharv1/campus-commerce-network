@@ -5,13 +5,13 @@ feature inherits. It is built as tiered tokens; nothing hardcodes a raw value.
 
 ## Token tiers (inheritance flows down; overrides never flow up)
 
-| Tier | Purpose | Naming | Owner | Example |
-|---|---|---|---|---|
-| **core** (reference) | Raw, meaning-free primitives | hue + scale, t-shirt steps | Design Systems | `indigo.600`, `space.xl` |
-| **semantic** | Role assignment (Increment 2) | role-based | Design Systems | `background.default`, `text.primary` |
-| **component** | Per-component slots (later) | component.part.state | Component owners | `button.primary.bg` |
-| **theme** | Light/dark/system value sets (Increment 3) | theme → semantic | Design Systems | `theme.dark.surface` |
-| **motion** | Duration/easing/spring (later) | intent-based | Design Systems | `motion.duration.fast` |
+| Tier                 | Purpose                                    | Naming                     | Owner            | Example                              |
+| -------------------- | ------------------------------------------ | -------------------------- | ---------------- | ------------------------------------ |
+| **core** (reference) | Raw, meaning-free primitives               | hue + scale, t-shirt steps | Design Systems   | `indigo.600`, `space.xl`             |
+| **semantic**         | Role assignment (Increment 2)              | role-based                 | Design Systems   | `background.default`, `text.primary` |
+| **component**        | Per-component slots (later)                | component.part.state       | Component owners | `button.primary.bg`                  |
+| **theme**            | Light/dark/system value sets (Increment 3) | theme → semantic           | Design Systems   | `theme.dark.surface`                 |
+| **motion**           | Duration/easing/spring (later)             | intent-based               | Design Systems   | `motion.duration.fast`               |
 
 **Rule:** core tokens are hue/scale-named and carry no meaning. Meaning is
 assigned only at the semantic tier. Components consume semantic (or component)
@@ -29,7 +29,7 @@ Exposed as `core` from `@ccn/ui`:
 ```ts
 import { core } from '@ccn/ui';
 core.color.indigo[600]; // '#4F46E5'
-core.space.xl;          // 16
+core.space.xl; // 16
 core.typography.fontSize['4xl']; // 32
 ```
 

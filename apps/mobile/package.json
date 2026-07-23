@@ -26,12 +26,17 @@
     "react-native": "catalog:",
     "react-native-gesture-handler": "catalog:",
     "react-native-reanimated": "catalog:",
-    "react-native-safe-area-context": "catalog:"
+    "react-native-safe-area-context": "catalog:",
+    "react-native-worklets": "catalog:"
   },
   "devDependencies": {
     "@babel/core": "catalog:",
     "@ccn/config": "workspace:*",
+    "@types/jest": "catalog:",
     "@types/react": "catalog:",
-    "babel-plugin-module-resolver": "catalog:"
+    "babel-plugin-module-resolver": "catalog:",
+    "babel-preset-expo": "catalog:",
+    "jest": "catalog:",
+    "ts-jest": "catalog:"
   }
 }

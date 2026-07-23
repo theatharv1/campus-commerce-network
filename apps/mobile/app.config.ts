@@ -9,7 +9,7 @@ import type { ConfigContext, ExpoConfig } from 'expo/config';
 
 type AppEnv = 'development' | 'preview' | 'staging' | 'production';
 
-const APP_ENV = (process.env.EXPO_PUBLIC_APP_ENV as AppEnv | undefined) ?? 'development';
+const APP_ENV = (process.env['EXPO_PUBLIC_APP_ENV'] as AppEnv | undefined) ?? 'development';
 
 const DISPLAY_NAME: Record<AppEnv, string> = {
   development: 'CCN (Dev)',
@@ -36,9 +36,6 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   scheme: 'ccn',
   version: '0.0.0',
   orientation: 'portrait',
-  userInterfaceStyle: 'automatic',
-  newArchEnabled: true,
-  runtimeVersion: { policy: 'appVersion' },
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: false,
@@ -46,12 +43,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   android: {
     package: BUNDLE_ID[APP_ENV],
-    edgeToEdgeEnabled: true,
   },
   plugins: [['expo-splash-screen', { backgroundColor: SPLASH_BACKGROUND, resizeMode: 'contain' }]],
-  experiments: { typedRoutes: false },
   extra: {
     appEnv: APP_ENV,
-    eas: { projectId: process.env.EAS_PROJECT_ID },
+    eas: { projectId: process.env['EAS_PROJECT_ID'] },
   },
 });

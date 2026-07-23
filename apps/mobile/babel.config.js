@@ -1,6 +1,6 @@
 // babel-preset-expo covers Hermes/JSX/TS transforms. The module-resolver keeps
-// the `@/*` alias (TS-ADR-04) working at runtime. The Reanimated plugin MUST be
-// last. See Risks R2 re: Reanimated 3 vs 4 (worklets) plugin path.
+// the `@/*` alias (TS-ADR-04) working at runtime. Reanimated 4 uses the
+// Worklets Babel plugin, which MUST be listed last.
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -14,7 +14,7 @@ module.exports = function (api) {
           extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },
       ],
-      'react-native-reanimated/plugin',
+      'react-native-worklets/plugin',
     ],
   };
 };
